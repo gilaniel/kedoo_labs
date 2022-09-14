@@ -27,7 +27,7 @@ export const Partners = () => {
         textAlign="center"
         mb={8}
       >
-        Our partners
+        Наши партнеры
       </Text>
 
       <Flex alignItems="flex-end">

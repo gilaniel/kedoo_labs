@@ -16,7 +16,7 @@ export const Jobs = () => {
           lineHeight="24px"
           mb={3}
         >
-          We’re hiring!
+          Мы нанимаем!
         </Text>
 
         <Heading fontSize="36px" lineHeight="44px" mb={5} color="black">
