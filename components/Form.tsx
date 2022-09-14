@@ -7,12 +7,14 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Select,
   Textarea,
+  useToast,
+  UseToastOptions,
 } from "@chakra-ui/react";
 import { Codes } from "./Codes";
 import { Drop } from "./Drop";
 import { useForm } from "react-hook-form";
+import { theme } from "../ui";
 
 const emailRegExp =
   /^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i;
@@ -27,6 +29,22 @@ export const Form = () => {
 
   const [mask, setMask] = useState<any>("+7");
   const [file, setFile] = useState<any[]>([]);
+  const [isSending, setSenging] = useState(false);
+
+  const toast = useToast();
+
+  const showToast = (options?: UseToastOptions) => {
+    toast({
+      status: "info",
+      duration: 3000,
+      isClosable: true,
+      position: "bottom-right",
+      containerStyle: {
+        fontSize: "14px",
+      },
+      ...options,
+    });
+  };
 
   const onSubmit = (data: any) => {
     const formData = new FormData();
@@ -38,6 +56,34 @@ export const Form = () => {
     Object.entries(data).map((item: any) => {
       formData.append(item[0], item[1]);
     });
+
+    sendForm(formData);
+  };
+
+  const sendForm = async (data: any) => {
+    setSenging(true);
+    try {
+      await fetch(`https://www.kedoo.com/api/account/sendmail3`, {
+        method: "POST",
+        body: data,
+        headers: {
+          "Content-Type": `multipart/form-data;`,
+        },
+      });
+
+      reset();
+      setFile([]);
+
+      setSenging(false);
+
+      showToast({
+        description: "Ваше сообщение успешно отправлено",
+        status: "success",
+      });
+    } catch (e) {
+      setSenging(false);
+      showToast({ description: "Произошла ошибка", status: "error" });
+    }
   };
 
   return (
@@ -142,6 +188,7 @@ export const Form = () => {
             h="48px"
             _hover={{ bgColor: "#0a8cc7" }}
             _active={{ bgColor: "#0c6e9b" }}
+            isLoading={isSending}
           >
             Отправить
           </Button>
