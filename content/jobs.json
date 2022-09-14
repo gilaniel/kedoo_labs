@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Product Designer",
+    "desc": "We’re looking for a mid-level product designer to join our team.",
+    "tag": "Design",
+    "color": "#175CD3",
+    "circleColor": "#2E90FA",
+    "bg": "#EFF8FF"
+  },
+  {
+    "title": "Engineering Manager",
+    "desc": "We’re looking for an experienced engineering manager to join our team.",
+    "tag": "Software Development",
+    "color": "#C11574",
+    "circleColor": "#EE46BC",
+    "bg": "#FDF2FA"
+  },
+  {
+    "title": "Customer Success Manager",
+    "desc": "We’re looking for a customer success manager to join our team.",
+    "tag": "Customer Success",
+    "color": "#027A48",
+    "circleColor": "#12B76A",
+    "bg": "#ECFDF3"
+  },
+  {
+    "title": "Account Executive",
+    "desc": "We’re looking for an account executive to join our team.",
+    "tag": "Sales",
+    "color": "#3538CD",
+    "circleColor": "#6172F3",
+    "bg": "#EEF4FF"
+  }
+]
