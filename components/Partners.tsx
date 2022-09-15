@@ -34,7 +34,7 @@ export const Partners = () => {
         <Box pr={10}>
           <Image src={Logo1.src} w="100%" />
         </Box>
-        <Box transform="translateY(7px)" pr={10}>
+        <Box pr={10}>
           <Image src={Logo2.src} w="100%" />
         </Box>
 
