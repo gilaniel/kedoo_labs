@@ -8,10 +8,9 @@ export const Item = ({ data }) => {
   return (
     <Box mt="29px">
       <Box w="100%" h="1px" bgColor="#EAECF0" mb={6}></Box>
-      <Flex alignItems="center">
+      <Flex alignItems="center" mb={2}>
         <Heading
           mr={2}
-          mb={2}
           fontWeight={500}
           fontSize="18px"
           lineHeight="28px"
