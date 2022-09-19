@@ -15,6 +15,8 @@ import { Codes } from "./Codes";
 import { Drop } from "./Drop";
 import { useForm } from "react-hook-form";
 import { theme } from "../ui";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 const emailRegExp =
   /^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i;
@@ -32,6 +34,8 @@ export const Form = () => {
   const [isSending, setSenging] = useState(false);
 
   const toast = useToast();
+
+  const bgRef = useRef<any>(null);
 
   const showToast = (options?: UseToastOptions) => {
     toast({
@@ -86,15 +90,41 @@ export const Form = () => {
     }
   };
 
+  const changeBgWidth = () => {
+    if (bgRef.current) {
+      const { left } = bgRef.current.getBoundingClientRect();
+      bgRef.current.style.width = `calc(100vw - ${left}px)`;
+    }
+  };
+
+  useEffect(() => {
+    if (bgRef.current) {
+      const { left } = bgRef.current.getBoundingClientRect();
+      bgRef.current.style.width = `calc(100vw - ${left}px)`;
+    }
+  }, [bgRef]);
+
+  useEffect(() => {
+    window.addEventListener("resize", changeBgWidth);
+
+    return () => window.removeEventListener("resize", changeBgWidth);
+  }, []);
+
   return (
-    <Box w="100%" bgColor="white" pos="relative" py="96px">
+    <Box
+      w="100%"
+      bgColor="white"
+      pos="relative"
+      py={{ base: "20px", md: "96px" }}
+      px="12px"
+    >
       <Box
+        ref={bgRef}
         pos="absolute"
         left={0}
         top={0}
         h="100%"
         bgColor="white"
-        w="3000px"
         zIndex={1}
       ></Box>
       <Box pos="relative" zIndex={2} maxW="512px" w="100%" mx="auto">

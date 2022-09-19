@@ -30,24 +30,37 @@ export const Partners = () => {
         Наши партнеры
       </Text>
 
-      <Flex alignItems="flex-end">
-        <Box pr={10}>
+      <Flex
+        alignItems={{ base: "center", md: "flex-end" }}
+        flexWrap={{ base: "wrap", md: "nowrap" }}
+      >
+        <Box pr={{ base: 5, md: 10 }} w="50%" mb={{ base: 6, md: 0 }}>
           <Image src={Logo1.src} w="100%" />
         </Box>
-        <Box pr={10}>
+        <Box
+          pr={{ base: 0, md: 10 }}
+          pl={{ base: 5, md: 0 }}
+          w="50%"
+          mb={{ base: 6, md: 0 }}
+        >
           <Image src={Logo2.src} w="100%" />
         </Box>
 
-        <Box pr={10}>
+        <Box pr={{ base: 5, md: 10 }} w="50%" mb={{ base: 6, md: 0 }}>
           <Image src={Logo3.src} w="100%" />
         </Box>
-        <Box pr={10}>
+        <Box
+          pr={{ base: 0, md: 10 }}
+          pl={{ base: 5, md: 0 }}
+          w="50%"
+          mb={{ base: 6, md: 0 }}
+        >
           <Image src={Logo4.src} w="100%" />
         </Box>
-        <Box pr={10}>
+        <Box pr={{ base: 5, md: 10 }} w="50%">
           <Image src={Logo5.src} w="100%" />
         </Box>
-        <Box>
+        <Box pl={{ base: 5, md: 0 }} w="50%">
           <Image src={Logo6.src} w="100%" />
         </Box>
       </Flex>

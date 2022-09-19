@@ -10,9 +10,20 @@ export const Item = ({
   shadow = "none",
 }) => {
   return (
-    <Flex alignItems="center" flexDirection={isReverse ? "row-reverse" : "row"}>
-      <Box w="50%" mr={4} pl={isReverse ? "96px" : 7}>
-        <Image src={icon} mb={6} w="48px" h="48px" />
+    <Flex
+      alignItems="center"
+      flexDirection={isReverse ? "row-reverse" : "row"}
+      flexWrap={{ base: "wrap", md: "nowrap" }}
+      mb={{ base: 6, md: 0 }}
+    >
+      <Box
+        w={{ base: "100%", md: "50%" }}
+        mr={{ base: 0, md: 4 }}
+        pl={{ base: "0", md: isReverse ? "96px" : 7 }}
+        mt={4}
+        textAlign={{ base: "center", md: "start" }}
+      >
+        <Image src={icon} mb={6} w="48px" h="48px" display="inline-block" />
         <Heading
           fontWeight={600}
           fontSize="30px"
@@ -22,12 +33,17 @@ export const Item = ({
         >
           {title}
         </Heading>
-        <Text fontWeight={400} lineHeight="28px" maxW="537px">
+        <Text
+          fontWeight={400}
+          lineHeight="28px"
+          maxW={{ base: "100%", md: "537px" }}
+          mb={{ base: 6, md: 0 }}
+        >
           {desc}
         </Text>
       </Box>
 
-      <Box w="50%">
+      <Box w={{ base: "100%", md: "50%" }}>
         <Image src={bg} w="100%" boxShadow={shadow} />
       </Box>
     </Flex>

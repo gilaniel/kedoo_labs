@@ -5,8 +5,19 @@ import Bg from "../assets/1.png";
 
 export const About = () => {
   return (
-    <Flex alignItems="center" my={7} id="about">
-      <Box w="50%" mr={6} pl="88px">
+    <Flex
+      alignItems="center"
+      my={7}
+      id="about"
+      flexWrap={{ base: "wrap", md: "nowrap" }}
+    >
+      <Box
+        w={{ base: "100%", md: "50%" }}
+        mr={{ base: 0, md: 6 }}
+        mb={{ base: 6, md: 0 }}
+        pl={{ base: "0px", lg: "88px" }}
+        textAlign={{ base: "center", md: "start" }}
+      >
         <Heading
           color="black"
           fontWeight={600}
@@ -17,12 +28,17 @@ export const About = () => {
         >
           Kedoo labs
         </Heading>
-        <Text fontSize="20px" lineHeight="30px" fontWeight={400} maxW="480px">
+        <Text
+          fontSize="20px"
+          lineHeight="30px"
+          fontWeight={400}
+          maxW={{ base: "100%", md: "480px" }}
+        >
           Российский разработчик уникальных IT решений в области анализа данных
           и управления бизнесом
         </Text>
       </Box>
-      <Box w="50%">
+      <Box w={{ base: "100%", md: "50%" }}>
         <Image src={Bg.src} />
       </Box>
     </Flex>

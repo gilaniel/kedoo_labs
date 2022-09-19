@@ -10,11 +10,12 @@ export const Header = () => {
   const { handleClick } = useScroll();
 
   return (
-    <Box mx="112px" py="58px">
+    <Box mx={{ base: "0px", lg: "112px" }} py="58px">
       <Flex justifyContent="space-between" alignItems="flex-end">
-        <Image src={Logo.src} w="182px" />
+        <Image src={Logo.src} w={{ base: "82px", lg: "182px" }} />
 
         <Flex
+          display={{ base: "none", md: "flex" }}
           fontSize="16px"
           sx={{
             ".active": {
@@ -48,7 +49,6 @@ export const Header = () => {
             Партнеры
           </Flex>
           <Flex
-            mr={8}
             className={activeId === "jobs" ? "active" : ""}
             onClick={() => handleClick("jobs")}
             cursor="pointer"

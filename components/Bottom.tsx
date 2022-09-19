@@ -16,9 +16,12 @@ import { Form } from "./Form";
 export const Bottom = () => {
   return (
     <Box bgColor="#F8F9FC">
-      <Container maxW="1440px">
-        <Flex alignItems="flex-start">
-          <Box px="48px" py="96px" w="464px">
+      <Container maxW="1440px" px={0}>
+        <Flex
+          alignItems="flex-start"
+          flexWrap={{ base: "wrap-reverse", md: "nowrap" }}
+        >
+          <Box px="48px" py="96px" w={{ base: "100%", md: "464px" }}>
             <Heading mb={4} color="black" fontSize="24px" lineHeight="32px">
               Наши контакты
             </Heading>

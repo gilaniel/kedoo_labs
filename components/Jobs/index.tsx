@@ -7,8 +7,8 @@ import { Item } from "./Item";
 
 export const Jobs = () => {
   return (
-    <Box px="60px" id="jobs">
-      <Box pt="96px" mb="64px" px={8}>
+    <Box px={{ base: "15px", md: "60px" }} id="jobs">
+      <Box pt="96px" mb="64px" px={{ base: 0, md: 8 }}>
         <Text
           color="#026AA2"
           fontSize="16px"
@@ -28,13 +28,13 @@ export const Jobs = () => {
         </Text>
       </Box>
 
-      <Flex alignItems="flex-start" px={8}>
-        <Box w="50%" pr="32px">
+      <Flex alignItems="flex-start" px={{ base: 0, md: 8 }}>
+        <Box w={{ base: "100%", md: "50%" }} pr="32px">
           {Data.map((item, i) => (
             <Item key={i} data={item} />
           ))}
         </Box>
-        <Box w="50%" textAlign="end">
+        <Box w="50%" textAlign="end" display={{ base: "none", md: "flex" }}>
           <Image src={Bg.src} display="inline-block" />
         </Box>
       </Flex>
